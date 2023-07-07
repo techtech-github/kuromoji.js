@@ -6489,9 +6489,15 @@ exports.normalize = function(path) {
       trailingSlash = substr(path, -1) === '/';
 
   // Normalize the path
-  path = normalizeArray(filter(path.split('/'), function(p) {
-    return !!p;
-  }), !isAbsolute).join('/');
+  path = path.split('/');
+  
+  if(!path[0].includes(":")) {
+    path = normalizeArray(filter(path, function(p) {
+      return !!p;
+    }), !isAbsolute);
+  }
+  
+  path = path.join('/');
 
   if (!path && !isAbsolute) {
     path = '.';
