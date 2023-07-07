@@ -6485,29 +6485,16 @@ exports.resolve = function() {
 // path.normalize(path)
 // posix version
 exports.normalize = function(path) {
-  var isAbsolute = exports.isAbsolute(path),
-      trailingSlash = substr(path, -1) === '/';
+    path = path.split('/');
 
-  // Normalize the path
-  path = path.split('/');
-  
-  if(!path[0].includes(":")) {
-    path = normalizeArray(filter(path, function(p) {
-      return !!p;
-    }), !isAbsolute);
-  }
-  
-  path = path.join('/');
-
-  if (!path && !isAbsolute) {
-    path = '.';
-  }
-  if (path && trailingSlash) {
-    path += '/';
-  }
-
-  return (isAbsolute ? '/' : '') + path;
-};
+    if(!path[0].includes(":")) {
+      path = normalizeArray(filter(path, function(p) {
+        return !!p;
+      }), !isAbsolute);
+    }
+    
+    path = path.join('/');
+}
 
 // posix version
 exports.isAbsolute = function(path) {
