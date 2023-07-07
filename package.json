@@ -1,7 +1,7 @@
 {
   "name": "kuromoji-techtech",
   "description": "JavaScript implementation of Japanese morphological analyzer",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "TechTech <email@techtech.cc>",
   "browser": {
     "./src/loader/NodeDictionaryLoader.js": "./src/loader/BrowserDictionaryLoader.js"
